@@ -1,0 +1,13 @@
+names:
+  - carrot
+  - bittergourd
+  - bottlegourd
+  - brinjal
+  - broccoli
+  - potato
+  - tomato
+
+nc: 7
+test: D:\Project_Foody\codes\Models\Annotated_Data\test\images
+train: D:\Project_Foody\codes\Models\Annotated_Data\train\images
+val: D:\Project_Foody\codes\Models\Annotated_Data\valid\images

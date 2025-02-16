@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "74409897623",
+    "project_id": "foody03-f0ce6",
+    "storage_bucket": "foody03-f0ce6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74409897623:android:4df381ed326355874903d2",
+        "android_client_info": {
+          "package_name": "com.example.Foody"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74409897623-83kv9u252a44t9jkfbtgji598lmtt947.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.Foody",
+            "certificate_hash": "8a59de743cc4792318cbd9d2e3945f55538388a2"
+          }
+        },
+        {
+          "client_id": "74409897623-2nq2ve62qcmcpj88lf6gkokh0ursftr9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfr7shDTk-zZ6-FkDutXc9I1PbI2iqKMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74409897623-2nq2ve62qcmcpj88lf6gkokh0ursftr9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

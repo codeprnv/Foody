@@ -108,6 +108,7 @@ class _CameraScreenState extends State<CameraScreen> {
                         'Open Camera',
                         style: TextStyle(
                           color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -128,6 +129,7 @@ class _CameraScreenState extends State<CameraScreen> {
                         'Select from Gallery',
                         style: TextStyle(
                           color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -150,7 +152,12 @@ class _CameraScreenState extends State<CameraScreen> {
                         builder: (context) =>
                             ObjectDetectionScreen(imageFile: _image!),
                       ),
-                    );
+                    ).then((_) {
+                      // Clear the image when user returns
+                      setState(() {
+                        _image = null;
+                      });
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 232, 232, 163),
@@ -158,7 +165,7 @@ class _CameraScreenState extends State<CameraScreen> {
                         vertical: 15, horizontal: 30),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                          10), // Rounded corners for button
+                          15), // Rounded corners for button
                     ),
                   ),
                   child: const Text(

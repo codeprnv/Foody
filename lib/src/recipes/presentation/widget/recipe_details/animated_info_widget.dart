@@ -29,7 +29,7 @@ class AnimatedInfoWidget extends StatelessWidget {
         children: [
           _InfoViewer(name: 'Kcal', amount: nutrition["calories"]!),
           _InfoViewer(name: 'Protein', amount: nutrition["protein"]!),
-          _InfoViewer(name: 'Prep Time', amount: nutrition["prepTime"]!),
+          _InfoViewer(name: 'Prep Time', amount: nutrition["prepTime"] ?? 10), 
         ]
             .animate(interval: 200.ms, delay: infoDelayTime + 400.ms)
             .fadeIn(duration: infoPlayTime, curve: Curves.decelerate)

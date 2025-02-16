@@ -1,3 +1,4 @@
+import 'package:Foody/main.dart';
 import 'package:Foody/src/onboarding/widgets/onboarding_screen_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -15,14 +16,25 @@ class _OnBoardingBodyWidgetState extends State<OnBoardingBodyWidget>
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
     super.initState();
+    _controller = AnimationController(vsync: this);
   }
 
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void _completeOnboarding() {
+    _controller.forward();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const AuthWrapper()),
+        );
+      }
+    });
   }
 
   @override
@@ -33,13 +45,10 @@ class _OnBoardingBodyWidgetState extends State<OnBoardingBodyWidget>
     final descriptionDelayDuration = titleDelayDuration + 300.ms;
     final buttonDelayDuration = descriptionDelayDuration + 100.ms;
     final buttonPlayDuration = mainPlayDuration - 200.ms;
+
     return Column(
       children: [
-        const Flexible(
-          child: SizedBox(
-            height: 50,
-          ),
-        ),
+        const Flexible(child: SizedBox(height: 50)),
         Flexible(
           flex: 6,
           child: AnimatedDishWidget(
@@ -47,18 +56,15 @@ class _OnBoardingBodyWidgetState extends State<OnBoardingBodyWidget>
             leavesDelayDuration: leavesDelayDuration,
           ),
         ),
-        const SizedBox(
-          height: 30,
-        ),
+        const SizedBox(height: 30),
         Flexible(
           flex: 2,
           child: AnimatedTitleWidget(
-              titleDelayDuration: titleDelayDuration,
-              mainPlayDuration: mainPlayDuration),
+            titleDelayDuration: titleDelayDuration,
+            mainPlayDuration: mainPlayDuration,
+          ),
         ),
-        const SizedBox(
-          height: 20,
-        ),
+        const SizedBox(height: 20),
         Flexible(
           flex: 1,
           child: AnimatedDescriptionWidget(
@@ -69,21 +75,13 @@ class _OnBoardingBodyWidgetState extends State<OnBoardingBodyWidget>
         Expanded(
           flex: 3,
           child: GestureDetector(
-            onTap: () {
-              _controller.forward();
-              _controller.addStatusListener((status) {
-                if (status == AnimationStatus.completed) {
-                  Future.delayed(400.ms, () {
-                    Navigator.of(context).pushNamed('home');
-                  });
-                }
-              });
-            },
+            onTap: _completeOnboarding,
             child: AnimatedButtonWidget(
-                buttonDelayDuration: buttonDelayDuration,
-                buttonPlayDuration: buttonPlayDuration),
+              buttonDelayDuration: buttonDelayDuration,
+              buttonPlayDuration: buttonPlayDuration,
+            ),
           ),
-        )
+        ),
       ],
     )
         .animate(
@@ -92,8 +90,6 @@ class _OnBoardingBodyWidgetState extends State<OnBoardingBodyWidget>
         )
         .blurXY(begin: 0, end: 25, duration: 600.ms, curve: Curves.easeInOut)
         .scaleXY(begin: 1, end: 0.6)
-        .fadeOut(
-          begin: 1,
-        );
+        .fadeOut(begin: 1);
   }
 }

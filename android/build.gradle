@@ -1,14 +1,16 @@
 buildscript {
-    ext.kotlin_version = '1.7.10' // Update to the latest version
+    ext.kotlin_version = '2.1.10' // Update to the latest stable Kotlin version
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.android.tools.build:gradle:7.2.2' // Update to a stable version
+        classpath 'com.android.tools.build:gradle:8.8.0' // Update to a compatible AGP version
+        classpath 'com.google.gms:google-services:4.4.2' // Ensure Firebase plugin is included
     }
 }
+
 
 allprojects {
     repositories {
@@ -22,8 +24,38 @@ subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 subprojects {
+    if (project.hasProperty('android')) {
+        project.android {
+            if (!project.android.hasProperty('namespace')) {
+                def packageName = null
+                project.android.sourceSets.each { sourceSet ->
+                    if (sourceSet.name == 'main') {
+                        def manifestFile = sourceSet.manifest.srcFile
+                        if (manifestFile.exists()) {
+                            def manifestContent = manifestFile.text
+                            def matcher = manifestContent =~ 'package="(.+?)"'
+                            if (matcher.find()) {
+                                packageName = matcher.group(1)
+                            }
+                        }
+                    }
+                }
+                if (packageName != null) {
+                    project.android.namespace = packageName
+                    println "Set namespace '${packageName}' for project ${project.name}"
+                } else {
+                    println "Warning: Could not determine namespace for project ${project.name}"
+                }
+            }
+        }
+    }
+}
+
+subprojects {
     project.evaluationDependsOn(':app')
 }
+
+
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir

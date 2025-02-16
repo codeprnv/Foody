@@ -1,6 +1,7 @@
+import 'dart:io';
 import 'package:Foody/src/core/theme/app_colors.dart';
 import 'package:Foody/src/recipes/presentation/screens/camera_screen.dart';
-import 'package:Foody/src/recipes/presentation/screens/favorites_screen.dart';
+// import 'package:Foody/src/recipes/presentation/screens/favorites_screen.dart';
 import 'package:Foody/src/recipes/presentation/widget/home_screen/animated_appbar_widget.dart'
     as home;
 import 'package:Foody/src/recipes/presentation/widget/home_screen/home_screen_widgets.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool _showRecipeList = false;
   int _selectedIndex = 0;
+  File? _fallbackImageFile; // ✅ Added fallback image file
 
   void changeListVisibility() {
     setState(() {
@@ -27,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    Future.delayed(2550.ms, () => changeListVisibility());
     super.initState();
+    Future.delayed(2550.ms, () => changeListVisibility());
   }
 
   void _onItemTapped(int index) {
@@ -48,9 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     final avatarPlayDuration = 500.ms;
     final avatarWaitingDuration = 400.ms;
     final nameDelayDuration =
@@ -64,7 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
         categoryListDelayDuration + categoryListPlayDuration;
 
     final List<Widget> _pages = [
-      // Your existing HomeScreen content
       SafeArea(
         child: CustomScrollView(
           physics: const ClampingScrollPhysics(),
@@ -75,45 +74,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  const SizedBox(height: 30),
                   home.AnimatedAppBarWidget(
                       avatarWaitingDuration: avatarWaitingDuration,
                       avatarPlayDuration: avatarPlayDuration,
                       nameDelayDuration: nameDelayDuration,
                       namePlayDuration: namePlayDuration),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  // AnimatedCategoryList(
-                  //   categoryListPlayDuration: categoryListPlayDuration,
-                  //   categoryListDelayDuration: categoryListDelayDuration,
-                  // ),
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  const SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   AnimatedSelectedCategoryWidget(
                     selectedCategoryPlayDuration: selectedCategoryPlayDuration,
                     selectedCategoryDelayDuration:
                         selectedCategoryDelayDuration,
                   ),
-                  const SizedBox(
-                    height: 40,
-                  ),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),
             _showRecipeList
-                ? const AnimatedRecipesWidget()
-                : const SliverToBoxAdapter(
-                    child: SizedBox(),
+                ? AnimatedRecipesWidget(
+                    fallbackImageFile:
+                        _fallbackImageFile, // ✅ Pass fallback image file
                   )
+                : const SliverToBoxAdapter(child: SizedBox()),
           ],
         ),
       ),
       const CameraScreen(),
-      const FavoritesScreen(),
+      // const FavoritesScreen(),
     ];
 
     return WillPopScope(
@@ -126,12 +114,10 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0,
           iconSize: 28,
           onTap: _onItemTapped,
-          selectedItemColor: AppColors
-              .onBoardingButtonColor, // Replace with your kprimaryColor
+          selectedItemColor: AppColors.onBoardingButtonColor,
           unselectedItemColor: Colors.grey,
           selectedLabelStyle: const TextStyle(
-              color: AppColors.cardColor,
-              fontWeight: FontWeight.w700), // Replace with your kprimaryColor
+              color: AppColors.cardColor, fontWeight: FontWeight.w700),
           unselectedLabelStyle:
               const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           type: BottomNavigationBarType.fixed,
@@ -146,11 +132,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? const Icon(Iconsax.camera5)
                     : const Icon(Iconsax.camera4),
                 label: "Camera"),
-            BottomNavigationBarItem(
-                icon: _selectedIndex == 2
-                    ? const Icon(Iconsax.heart5)
-                    : const Icon(Iconsax.heart),
-                label: "Favorites"),
+            // BottomNavigationBarItem(
+            //     icon: _selectedIndex == 2
+            //         ? const Icon(Iconsax.heart5)
+            //         : const Icon(Iconsax.heart),
+            //     label: "Favorites"),
           ],
         ),
         body: IndexedStack(

@@ -7,6 +7,7 @@ import 'package:Foody/src/recipes/presentation/utils/prompts.dart';
 import 'package:Foody/src/recipes/presentation/widget/home_screen/recipe_card_widget.dart';
 import 'package:Foody/src/recipes/domain/recipe.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ObjectDetectionScreen extends StatefulWidget {
   final File imageFile;
@@ -32,7 +33,15 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
   }
 
   Future<void> _detectFoodWithGemini() async {
-    const apiKey = "AIzaSyBzYfWE4PKqQ9rcFsZv8dTjCvb53nfaK1g";
+    // const apiKey = "AIzaSyBzYfWE4PKqQ9rcFsZv8dTjCvb53nfaK1g";
+    final apiKey = dotenv.env['GEMINI_API_KEY'];
+    if (apiKey == null || apiKey.isEmpty) {
+      setState(() {
+        _message = 'API key is missing. Please check your .env file.';
+        _loading = false;
+      });
+      return;
+    }
     final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
 
     final imageBytes = await widget.imageFile.readAsBytes();

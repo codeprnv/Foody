@@ -8,16 +8,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:Foody/src/recipes/domain/recipe.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   try {
     await Firebase.initializeApp();
+    debugPrint('Firebase initialized successfully.');
+    await dotenv.load(fileName: ".env");
+    debugPrint('.env file loaded successfully.');
   } catch (e) {
-    debugPrint('Error initializing Firebase: $e');
+    debugPrint('Error initializing : $e');
   }
-
   runApp(const ProviderScope(child: Foody()));
 }
 

@@ -10,17 +10,17 @@ Foody is an AI-powered Flutter application designed to suggest personalized reci
 
 ## 📚 Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Learning Objectives](#learning-objectives)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
+- [About](##about)
+- [Features](##features)
+- [Screenshots](##screenshots)
+- [Built With](##built-with)
+- [Getting Started](##getting-started)
+- [Usage](##usage)
+- [Project Structure](##project-structure)
+- [Learning Objectives](##learning-objectives)
+- [Contributing](##contributing)
+- [Authors](##authors)
+- [License](##license)
 
 ---
 
@@ -45,15 +45,15 @@ Foody revolutionizes the cooking experience by eliminating the need for manual i
 
 | Onboarding | Login | Home |
 |:----------:|:-----:|:----:|
-| <img src="assets/images/onboarding.png" width="250"/> | <img src="assets/images/login.png" width="250"/> | <img src="assets/images/home.png" width="250"/> |
+| ![](assets/images/onboarding.png) | ![](assets/images/login.png) | ![](assets/images/home.png) |
 
 | Ingredient Detection | Recipe Suggestions | Recipe Details |
 |:--------------------:|:------------------:|:--------------:|
-| <img src="assets/images/detection.png" width="250"/> | <img src="assets/images/suggestions.png" width="250"/> | <img src="assets/images/details.png" width="250"/> |
+| ![](assets/images/detection.png) | ![](assets/images/suggestions.png) | ![](assets/images/details.png) |
 
 | Favorites | Share Recipe |
 |:---------:|:------------:|
-| <img src="assets/images/favorites.png" width="250"/> | <img src="assets/images/share.png" width="250"/> |
+| ![](assets/images/favorites.png) | ![](assets/images/share.png) |
 
 
 ---

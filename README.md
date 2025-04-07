@@ -7,19 +7,20 @@ Foody is an AI-powered Flutter application designed to suggest personalized reci
 ![Flutter](https://img.shields.io/badge/Flutter-3.19-blue?logo=flutter) ![License](https://img.shields.io/github/license/codeprnv/foody) ![Stars](https://img.shields.io/github/stars/codeprnv/foody?style=social) ![Open Issues](https://img.shields.io/github/issues/codeprnv/foody)
 
 ---
+
 ## 📚 Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Learning Objectives](#learning-objectives)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
+- [About](#-about)
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Built With](#-built-with)
+- [Getting Started](#-getting-started)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Learning Objectives](#-learning-objectives)
+- [Contributing](#-contributing)
+- [Authors](#-authors)
+- [License](#-license)
 
 ---
 
@@ -46,33 +47,33 @@ Foody revolutionizes the cooking experience by eliminating the need for manual i
 
 <table>
   <tr>
-    <td><strong>Onboarding</strong></td>
-    <td><strong>Login</strong></td>
-    <td><strong>Home</strong></td>
+    <th>Onboarding</th>
+    <th>Login</th>
+    <th>Home</th>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/onboarding.png" width="250"/></td>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/login.png" width="250"/></td>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/home.png" width="250"/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/onboarding.png" width="250"/><br/><br/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/login.png" width="250"/><br/><br/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/home.png" width="250"/><br/><br/></td>
   </tr>
   <tr>
-    <td><strong>Ingredient Detection</strong></td>
-    <td><strong>Recipe Suggestions</strong></td>
-    <td><strong>Recipe Details</strong></td>
+    <th>Ingredient Detection</th>
+    <th>Recipe Suggestions</th>
+    <th>Recipe Details</th>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/detection.png" width="250"/></td>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/suggestions.png" width="250"/></td>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/details.png" width="250"/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/detection.png" width="250"/><br/><br/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/suggestions.png" width="250"/><br/><br/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/details.png" width="250"/><br/><br/></td>
   </tr>
   <tr>
-    <td><strong>Favorites</strong></td>
-    <td><strong>Share Recipe</strong></td>
-    <td></td>
+    <th>Favorites</th>
+    <th>Share Recipe</th>
+    <th></th>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/favorites.png" width="250"/></td>
-    <td><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/share.png" width="250"/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/favorites.png" width="250"/><br/><br/></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/codeprnv/Foody/master/assets/screenshots/share.png" width="250"/><br/><br/></td>
     <td></td>
   </tr>
 </table>
